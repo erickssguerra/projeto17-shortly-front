@@ -12,6 +12,6 @@ export default function Logo() {
 const LogoStyle = styled.div`
   display: flex;
   img {
-    width: 40px;
+    width: 30px;
   }
 `;
