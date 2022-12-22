@@ -7,10 +7,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 }
 body {
-    background: #F1FFFA;
+    background: #f5f5f5;
     font-size: 14px;
-    color: #333;
+    color: #568259;
     font-family: 'Lexend Deca', sans-serif ;
+    
 }
 button{
     background: #568259;
@@ -25,10 +26,42 @@ button{
         cursor: pointer;
     }
 }
-svg {
-    :hover{
-        cursor: pointer;
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+input {
+    background: white;
+    border: none;
+    height: 40px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 16px;
+    color: #464E47;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 24px 0px #78B1591F;
+    :focus{
+        outline: #96E6B3 2px solid;
     }
+    ::placeholder{
+        font-weight: 400;
+        color: #568259;
+        font-style: italic;
+    }
+}
+
+ul, ol{
+    list-style: none;
+    line-height: 1;
+}
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 `;
