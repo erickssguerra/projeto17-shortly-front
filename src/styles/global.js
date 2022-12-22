@@ -22,6 +22,9 @@ button{
     font-weight: 400;
     color: #F1FFFA;
     padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 form {
