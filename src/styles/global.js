@@ -22,9 +22,6 @@ button{
     font-weight: 400;
     color: #F1FFFA;
     padding: 5px;
-    :hover{
-        cursor: pointer;
-    }
 }
 
 form {
