@@ -1,27 +1,32 @@
 import Logo from "../../assets/Logo";
 import * as S from "./style";
-import LoggedInCard from "./LoggedInCard";
-import LoggedOutCard from "./LoggedOutCard";
+import SignedInCard from "./SignedIn";
+import SignedOutCard from "./SignedOut";
 import { AiOutlineTrophy as TrophyIcon } from "react-icons/ai";
-import { AiFillHome as HomeIcon } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <S.Container>
-      <S.Left>
-        <Logo />
-        Shortly
-      </S.Left>
-      <S.Right>
-        <S.Menu>
-          <TrophyIcon />
-          <HomeIcon />
-        </S.Menu>
-        <S.Profile>
-          {/* <LoggedInCard /> */}
-          <LoggedOutCard />
-        </S.Profile>
-      </S.Right>
+      <S.Inner>
+        <Link to="/">
+          <S.Left>
+            <Logo />
+            Shortly
+          </S.Left>
+        </Link>
+        <S.Right>
+          <S.Menu>
+            <Link to="/">
+              <TrophyIcon />
+            </Link>
+          </S.Menu>
+          <S.Profile>
+            <SignedInCard />
+            {/* <SignedOutCard /> */}
+          </S.Profile>
+        </S.Right>
+      </S.Inner>
     </S.Container>
   );
 }
