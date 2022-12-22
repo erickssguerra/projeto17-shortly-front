@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { api } from "../../services";
-import {loading} from "../../assets/Spinners";
+import { loading } from "../../assets/Spinners";
+import { Link, useNavigate } from "react-router-dom";
 
 import * as Screen from "../../styles/Screen";
 import * as Form from "../../styles/Form";
-import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false);
