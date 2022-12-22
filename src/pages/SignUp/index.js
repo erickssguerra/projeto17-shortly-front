@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { api } from "../../services";
+import {loading} from "../../assets/Spinners";
 
 import * as Screen from "../../styles/Screen";
 import * as Form from "../../styles/Form";
 import { Link, useNavigate } from "react-router-dom";
-
 
 export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +37,7 @@ export default function SignUp() {
         navigate("/signin");
       })
       .catch((err) => {
-        console.log(err.response.data);
+        alert(err.response.data.message);
         setIsLoading(false);
       });
   }
@@ -79,7 +79,7 @@ export default function SignUp() {
           onChange={inputControl}
         />
         <Form.Button disabled={isLoading} type="submit">
-          Create Account
+          {isLoading ? loading : "Create Account"}
         </Form.Button>
       </Form.Form>
       <Link to="/signin">
