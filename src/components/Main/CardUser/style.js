@@ -11,8 +11,9 @@ export const Container = styled.li`
   background-color: beige;
   box-shadow: 0px 4px 24px 0px #78b1591f;
   border-radius: 5px;
+  transform: all 0.2s;
   :last-child {
-    margin-bottom: 0px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -25,7 +26,7 @@ export const BigUrl = styled.div`
   font-size: 14px;
   font-weight: 400;
   height: 20px;
-  border-right: 1px solid #ccfccb;
+  border-right: 1px solid #96E6B3;
   a {
     white-space: nowrap;
     overflow-x: hidden;
@@ -43,7 +44,7 @@ export const ShortUrl = styled.div`
   font-size: 16px;
   font-weight: 700;
   height: 20px;
-  border-right: 1px solid #ccfccb;
+  border-right: 1px solid #96E6B3;
 `;
 
 export const Views = styled.div`

@@ -6,17 +6,34 @@ import { useAuth } from "../../providers";
 import { loadingPage } from "../../assets/Spinners";
 import Unauthorized from "../../components/Main/Unauthorized";
 import Empty from "../../components/Main/Empty";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { api } from "../../services";
 
 export default function Metrics() {
-  const { userData, userAuth } = useAuth();
-  useEffect(() => {}, [userData]);
+  const { userAuth } = useAuth();
+  const [userData, setUserData] = useState();
+  const [update, setUpdate] = useState();
+
+  useEffect(() => {
+    api
+      .get(`users/me`, userAuth)
+      .then((res) => {
+        setUserData(res.data);
+      })
+      .catch((err) => console.log(err.response.data));
+  }, [update]);
+
   if (!userAuth) {
     return <Unauthorized />;
   }
 
   if (!userData) {
-    return <Screen.Container>{loadingPage}</Screen.Container>;
+    return (
+      <Screen.Container>
+        <h1>My links</h1>
+        {loadingPage}
+      </Screen.Container>
+    );
   }
 
   if (userData.shortenedUrls.length === 0) {
@@ -28,7 +45,7 @@ export default function Metrics() {
       <h1>My links</h1>
       <S.List>
         <S.ListHeader>
-          <S.BigUrl>Original</S.BigUrl>
+          <S.BigUrl>Original link</S.BigUrl>
           <S.ShortUrl>Short</S.ShortUrl>
           <S.Views>Views</S.Views>
           <S.Delete>
@@ -36,7 +53,12 @@ export default function Metrics() {
           </S.Delete>
         </S.ListHeader>
         {userData.shortenedUrls.map((urlObject, i) => (
-          <CardUser urlObject={urlObject} key={i} />
+          <CardUser
+            setUpdate={setUpdate}
+            update={update}
+            urlObject={urlObject}
+            key={i}
+          />
         ))}
       </S.List>
     </Screen.Container>
