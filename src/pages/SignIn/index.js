@@ -24,9 +24,15 @@ export default function Signin() {
   function signIn(event) {
     setIsLoading(true);
     event.preventDefault();
-    api.post("/signin", form).then(() => {
-      navigate("/metrics");
-    });
+    api
+      .post("/signin", form)
+      .then(() => {
+        navigate("/metrics");
+      })
+      .catch((err) => {
+        alert(err.response.data.message);
+        setIsLoading(false);
+      });
   }
   return (
     <Screen.Container>
