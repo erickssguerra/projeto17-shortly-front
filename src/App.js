@@ -1,11 +1,14 @@
 import GlobalStyle from "./styles/global";
 import RouterProvider from "../src/routes";
+import { AuthProvider } from "./providers";
 
 export default function App() {
   return (
     <>
-      <GlobalStyle />
-      <RouterProvider />
+      <AuthProvider>
+        <GlobalStyle />
+        <RouterProvider />
+      </AuthProvider>
     </>
   );
 }
