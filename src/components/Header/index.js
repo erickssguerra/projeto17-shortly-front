@@ -1,11 +1,14 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../providers";
 import Logo from "../../assets/Logo";
 import * as S from "./style";
 import SignedInCard from "./SignedIn";
 import SignedOutCard from "./SignedOut";
 import { AiOutlineTrophy as TrophyIcon } from "react-icons/ai";
-import { Link } from "react-router-dom";
 
 export default function Header() {
+  const { userAuth } = useAuth();
   return (
     <S.Container>
       <S.Inner>
@@ -22,8 +25,7 @@ export default function Header() {
             </Link>
           </S.Menu>
           <S.Profile>
-            <SignedInCard />
-            {/* <SignedOutCard /> */}
+            {userAuth ? <SignedInCard /> : <SignedOutCard />}
           </S.Profile>
         </S.Right>
       </S.Inner>

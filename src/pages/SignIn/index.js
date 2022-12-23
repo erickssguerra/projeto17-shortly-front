@@ -2,12 +2,14 @@ import { useState } from "react";
 import { api } from "../../services";
 import { loadingButton } from "../../assets/Spinners";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../providers";
 
 import * as Screen from "../../styles/Screen";
 import * as Form from "../../styles/Form";
 
 export default function Signin() {
   const [isLoading, setIsLoading] = useState(false);
+  const { setUserAuth } = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: "",
@@ -26,7 +28,11 @@ export default function Signin() {
     event.preventDefault();
     api
       .post("/signin", form)
-      .then(() => {
+      .then((res) => {
+        const config = {
+          headers: { Authorization: `Bearer ${res.data.token}` },
+        };
+        setUserAuth(config);
         navigate("/metrics");
       })
       .catch((err) => {
@@ -43,7 +49,7 @@ export default function Signin() {
           placeholder="E-mail"
           disabled={isLoading}
           type="email"
-          required="true"
+          required
           onChange={inputControl}
         />
         <Form.Input
@@ -51,7 +57,7 @@ export default function Signin() {
           placeholder="Password"
           disabled={isLoading}
           type="password"
-          required="true"
+          required
           onChange={inputControl}
         />
         <Form.Button type="submit">
