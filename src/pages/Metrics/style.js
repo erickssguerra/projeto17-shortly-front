@@ -12,7 +12,7 @@ export const ListHeader = styled.div`
   display: flex;
   align-items: center;
   padding: 5px;
-  margin: 20px auto;
+  margin-bottom: 20px;
   border-radius: 5px;
   box-shadow: 0px 4px 24px 0px #78b1591f;
 `;
