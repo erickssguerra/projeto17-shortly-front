@@ -1,6 +1,6 @@
-import { ThreeDots } from "react-loader-spinner";
+import { ThreeDots, RotatingLines } from "react-loader-spinner";
 
-export const loading = <ThreeDots
+export const loadingButton = <ThreeDots
 height="50" 
 width="50" 
 radius="4"
@@ -10,3 +10,8 @@ wrapperStyle={{}}
 wrapperClassName=""
 visible={true}
 />;
+
+export const loadingPage = <RotatingLines
+strokeColor="#568259"
+width="100"
+/>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { api } from "../../services";
-import { loading } from "../../assets/Spinners";
+import { loadingButton } from "../../assets/Spinners";
 import { Link, useNavigate } from "react-router-dom";
 
 import * as Screen from "../../styles/Screen";
@@ -79,7 +79,7 @@ export default function SignUp() {
           onChange={inputControl}
         />
         <Form.Button disabled={isLoading} type="submit">
-          {isLoading ? loading : "Create Account"}
+          {isLoading ? loadingButton : "Create Account"}
         </Form.Button>
       </Form.Form>
       <Link to="/signin">
