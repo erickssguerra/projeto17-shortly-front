@@ -1,7 +1,7 @@
 import * as Screen from "../../styles/Screen";
 import * as Form from "../../styles/Form";
 
-export default function User() {
+export default function New() {
   return (
     <Screen.Container>
       <h1>Shorten an URL</h1>

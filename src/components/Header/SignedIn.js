@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { api } from "../../services";
 import { useAuth } from "../../providers";
 
-import { AiFillHome as HomeIcon } from "react-icons/ai";
+import { MdOutlineOpenInNew as PostIcon } from "react-icons/md";
 import { TbLogout as LogoutIcon } from "react-icons/tb";
 import { IoIosStats as StatsIcon } from "react-icons/io";
 import { loadingButton } from "../../assets/Spinners";
@@ -29,8 +29,8 @@ export default function SignedInCard() {
 
   return (
     <>
-      <Link to="/me">
-        <HomeIcon />
+      <Link to="/new">
+        <PostIcon />
       </Link>
       <Link to="/metrics">
         <StatsIcon />
