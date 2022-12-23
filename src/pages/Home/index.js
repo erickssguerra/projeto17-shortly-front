@@ -31,7 +31,6 @@ export default function Home() {
       </Screen.Container>
     );
   }
-  console.log(ranking);
 
   return (
     <Screen.Container>
