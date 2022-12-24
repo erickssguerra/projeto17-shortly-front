@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services";
 import { useAuth } from "../../providers";
 
@@ -10,7 +10,8 @@ import { useEffect, useState } from "react";
 
 export default function SignedInCard() {
   const { userData, setUserData, userAuth } = useAuth();
-  const [update, setUpdate] = useState(false)
+  const [update, setUpdate] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     api
@@ -22,6 +23,11 @@ export default function SignedInCard() {
         alert(err.response.data.message);
       });
   }, [update]);
+
+  function signout() {
+    navigate("/");
+    window.location.reload();
+  }
 
   if (!userData) {
     return <>{loadingButton}</>;
@@ -36,7 +42,7 @@ export default function SignedInCard() {
         <StatsIcon />
       </Link>
       <p>Hi, {userData.name}!</p>
-      <LogoutIcon />
+      <LogoutIcon onClick={signout} />
     </>
   );
 }
