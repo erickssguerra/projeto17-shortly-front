@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <S.Container>
       <S.Inner>
-        <Link to="/">
+        <Link to="/open">
           <S.Left>
             <Logo />
             Shortly
