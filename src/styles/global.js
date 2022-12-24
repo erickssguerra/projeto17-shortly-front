@@ -63,6 +63,9 @@ a {
     color: inherit;
     text-decoration: none;
 }
+h1{
+    margin-bottom: 20px;
+}
 
 `;
 export default GlobalStyle;

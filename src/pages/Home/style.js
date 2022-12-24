@@ -15,6 +15,7 @@ export const Top = styled.div`
 export const List = styled.ol`
   width: 400px;
   max-width: 90%;
+  margin-bottom: 20px;
 `;
 
 export const ListHeader = styled.div`
