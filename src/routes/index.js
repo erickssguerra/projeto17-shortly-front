@@ -6,6 +6,7 @@ import New from "../pages/New";
 import Header from "../components/Header";
 import Metrics from "../pages/Metrics";
 import OpenUrl from "../pages/OpenUrl";
+import NotFound from "../components/Main/NotFound";
 
 export default function RouterProvider() {
   return (
@@ -18,6 +19,7 @@ export default function RouterProvider() {
         <Route path="/new" element={<New />} />
         <Route path="/metrics" element={<Metrics />} />
         <Route path="/open" element={<OpenUrl />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
