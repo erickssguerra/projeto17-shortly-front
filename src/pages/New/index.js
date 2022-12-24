@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAuth } from "../../providers";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services";
+import Unauthorized from "../../components/Main/Unauthorized";
 
 export default function New() {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +25,7 @@ export default function New() {
     setIsLoading(true);
     event.preventDefault();
     api
-      .post("/urls/shorten",  form, userAuth)
+      .post("/urls/shorten", form, userAuth)
       .then((res) => {
         console.log(res.data);
         navigate("/metrics");
@@ -33,6 +34,10 @@ export default function New() {
         setIsLoading(false);
         console.log(err.response.data);
       });
+  }
+
+  if (!userAuth) {
+    return <Unauthorized />;
   }
 
   return (

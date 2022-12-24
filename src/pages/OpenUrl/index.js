@@ -26,6 +26,7 @@ export default function OpenUrl() {
     api
       .get(`/urls/open/${form.shortUrl}`)
       .then((res) => {
+        setIsLoading(false);
         window.location.assign(res.data);
       })
       .catch((err) => {
