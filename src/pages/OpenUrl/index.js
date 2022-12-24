@@ -31,7 +31,7 @@ export default function OpenUrl() {
       })
       .catch((err) => {
         setIsLoading(false);
-        console.log(err);
+        alert(err.response.data.message);
       });
   }
 
